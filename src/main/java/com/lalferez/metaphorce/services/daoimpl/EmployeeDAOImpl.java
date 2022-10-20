@@ -27,7 +27,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         //Current session
         Session currentSession = entityManager.unwrap(Session.class);
         //Create query
-        Query<Employees> query= currentSession.createQuery("select  Concat(employees.name,concat(' ',employees.last_name)), employees,tax_id_number, employees.email, contract_type.name, employees.date_created, contract.salary_per_day from employees, contrac_type, contract where contract_type.is_active = true;", Employees.class);
+        Query<Employees> query= currentSession.createQuery("from Employees " , Employees.class);
         //Execute query
         List<Employees> employeesList = query.getResultList();
         //return
